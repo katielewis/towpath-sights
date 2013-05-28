@@ -18,6 +18,25 @@
 	left:0px;
 	width:100%;
 }
+.spot {
+  width:60px;
+  height:60px;
+  margin:-40px 0px 0px -40px;
+  border-radius:50%;
+  border:10px solid #ff9270;
+  background:#ff9270 url(sprite.png) 100px 100px no-repeat;
+  position:absolute;
+}
+.spot-P1 { background-position:-120px -20px; }
+.spot-P2 { background-position:-220px -20px; }
+.spot-P3 { background-position:-320px -20px; }
+.spot-P4 { background-position:-420px -20px; }
+.spot-P5 { background-position:-520px -20px; }
+.spot-P6 { background-position:-620px -20px; }
+.spot-P7 { background-position:-720px -20px; }
+.spot-P8 { background-position:-820px -20px; }
+.spot-P9 { background-position:-120px -20px; }
+.spot-P10 { background-position:-220px -20px; }
 </style>
 </head>
 
@@ -28,32 +47,40 @@
 
  var geojson = [
 	{ "geometry": { "type": "Point", "coordinates": [-81.570826, 41.279983] },
-    "properties": { "title": "P1" } },
+    "properties": { "id": "P1" } },
 	{ "geometry": { "type": "Point", "coordinates": [-81.559281, 41.263074] },
-    "properties": { "title": "P2" } },
+    "properties": { "id": "P2" } },
 	{ "geometry": { "type": "Point", "coordinates": [-81.548660, 41.241691] },
-    "properties": { "title": "P3" } },
+    "properties": { "id": "P3" } },
 	{ "geometry": { "type": "Point", "coordinates": [-81.518249, 41.091926] },
-    "properties": { "title": "P4" } },
+    "properties": { "id": "P4" } },
 	{ "geometry": { "type": "Point", "coordinates": [-81.523801, 41.077467] },
-    "properties": { "title": "P5" } },
+    "properties": { "id": "P5" } },
 	{ "geometry": { "type": "Point", "coordinates": [-81.522031, 41.076642] },
-    "properties": { "title": "P6" } },
+    "properties": { "id": "P6" } },
 	{ "geometry": { "type": "Point", "coordinates": [-81.519842, 41.080431] },
-    "properties": { "title": "P7" } },
+    "properties": { "id": "P7" } },
 	{ "geometry": { "type": "Point", "coordinates": [-81.548660, 41.241691] },
-    "properties": { "title": "P8" } },
+    "properties": { "id": "P8" } },
     { "geometry": { "type": "Point", "coordinates": [-81.549025, 41.242288] },
-    "properties": { "title": "P9" } },
+    "properties": { "id": "P9" } },
     { "geometry": { "type": "Point", "coordinates": [-81.570826, 41.279983] },
-    "properties": { "title": "P10" } },
+    "properties": { "id": "P10" } },
 ];
 var tiles = mapbox.layer().tilejson({
   tiles: [ "http://a.tiles.mapbox.com/v3/codeforamerica.map-ht6lb7bx/{z}/{x}/{y}.png" ]
 });
 var spots = mapbox.markers.layer()
 	// Load up markers from geojson data.
-  .features(geojson);
+  .features(geojson)
+	// Define a new factory function. Takes geojson input and returns a
+	// DOM element that represents the point.
+	.factory(function(f) {
+		var el = document.createElement('div');
+		el.className = 'spot spot-' + f.properties.id;
+		return el;
+	});
+
 var map = mapbox
 	// Creates the map with tile and spots layers.
   .map('map', [tiles, spots])
