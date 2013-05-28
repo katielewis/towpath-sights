@@ -97,11 +97,11 @@ p { margin:0px; }
   position:absolute;
 }
 .spot-cover { display:none; }
-.spot-P1 { background-position:-120px -20px; }
-.spot-P1.active { background-position:-100px 0px; }
-.spot-P2 { background-position:-220px -20px; }
-.spot-P2.active { background-position:-200px 0px; }
-.spot-P3 { background-position:-320px -20px; }
+.spot-P1 { background-position:-130px 0px; }
+.spot-P1.active { background-position:-130px -120px; }
+.spot-P2 { background-position:-260px 0px; }
+.spot-P2.active { background-position:-260px -120px; }
+.spot-P3 { background-position:-390px 0px; }
 .spot-P3.active { background-position:-300px 0px; }
 .spot-P4 { background-position:-420px -20px; }
 .spot-P4.active { background-position:-400px 0px; }
@@ -117,13 +117,10 @@ p { margin:0px; }
 .spot-P9.active { background-position:-100px 0px; }
 .spot-P10 { background-position:-220px -20px; }
 .spot-P10.active { background-position:-200px 0px; }
-.spot.active {
-	border-color:#222;
-	background-color:#222;
-	width:100px; height:100px; margin:-60px 0px 0px -60px;
-}
+/* Distinguish the "cover page" visually other sections. */
+body.section-0 #map { opacity:0.5; }
 
-+
+
 @media (max-width:640px) {
 	body { font-size:12px; line-height:16px; }
 	article { width:100%; min-width:100%; padding-top:0px; padding-bottom:200%; }
@@ -139,7 +136,7 @@ p { margin:0px; }
 </style>
 </head>
 
-<body>
++<body class='section-0'>
 <div id='pane'>
 	<div id='map'></div>
 </div>
@@ -255,6 +252,9 @@ var setActive = function(index, ease) {
 	sections[index].className += ' active';
 	markers[index].element.className += ' active';
 
+	// Set a body class for the active section.
+	document.body.className = 'section-' + index;
+
 	// Ease map to active marker.
 	if (!ease) {
 		map.centerzoom(markers[index].location, markers[index].data.properties.zoom||14);
@@ -267,19 +267,32 @@ var setActive = function(index, ease) {
 
 // Bind to scroll events to find the active section.
 window.onscroll = _(function() {
+	// IE 8
+	if (window.pageYOffset === undefined) {
+		var y = document.documentElement.scrollTop;
+		var h = document.documentElement.clientHeight;
+	} else {
+		var y = window.pageYOffset;
+	var h = window.innerHeight;
+	}
+
 	// If scrolled to the very top of the page set the first section active.
-	if (window.scrollY === 0) return setActive(0, true);
+	if (y === 0) return setActive(0, true);
 
 	// Otherwise, conditionally determine the extent to which page must be
 	// scrolled for each section. The first section that matches the current
 	// scroll position wins and exits the loop early.
 	var memo = 0;
-	var buffer = (window.innerHeight*0.3333);
-	_(sections).any(function(el, index) {
+	var buffer = (h * 0.3333);
+	var active = _(sections).any(function(el, index) {
 		memo += el.offsetHeight;
-		return window.scrollY < (memo-buffer) ? setActive(index, true) : false;
+		return y < (memo-buffer) ? setActive(index, true) : false;
 	});
-}).debounce(20);
+
+	// If no section was set active the user has scrolled past the last section.
+	// Set the last section active.
+	if (!active) setActive(sections.length - 1, true);
+}).debounce(10);
 
 // Set map to first section.
 setActive(0, false);
