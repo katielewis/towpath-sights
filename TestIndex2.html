@@ -1,0 +1,62 @@
+<html>
+<head>
+<meta charset='UTF-8'/>
+<script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>
+<link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.css' rel='stylesheet' />
+
+<style>
+ body {
+	margin:0px;
+	padding:0px;
+	font:normal 15px/20px Arial,sans-serif;
+	background:#fff;
+}
+#map  {
+	position:absolute;
+	top:0px;
+	bottom:0px;
+	left:0px;
+	width:100%;
+}
+</style>
+</head>
+
+<body>
+	<div id='map'></div>
+ 
+ <script>
+
+ var geojson = [
+	{ "geometry": { "type": "Point", "coordinates": [-81.570826, 41.279983] },
+    "properties": { "title": "1" } },
+	{ "geometry": { "type": "Point", "coordinates": [-81.559281, 41.263074] },
+    "properties": { "title": "2" } },
+	{ "geometry": { "type": "Point", "coordinates": [-81.548660, 41.241691] },
+    "properties": { "title": "3" } },
+	{ "geometry": { "type": "Point", "coordinates": [-81.518249, 41.091926] },
+    "properties": { "title": "4" } },
+	{ "geometry": { "type": "Point", "coordinates": [-81.523801, 41.077467] },
+    "properties": { "title": "5" } },
+	{ "geometry": { "type": "Point", "coordinates": [-81.522031, 41.076642] },
+    "properties": { "title": "6" } },
+	{ "geometry": { "type": "Point", "coordinates": [-81.519842, 41.080431] },
+    "properties": { "title": "7" } },
+	{ "geometry": { "type": "Point", "coordinates": [-81.548660, 41.241691] },
+    "properties": { "title": "8" } },
+];
+var tiles = mapbox.layer().tilejson({
+  tiles: [ "http://a.tiles.mapbox.com/v3/codeforamerica.map-ht6lb7bx/{z}/{x}/{y}.png" ]
+});
+var spots = mapbox.markers.layer()
+	// Load up markers from geojson data.
+  .features(geojson);
+var map = mapbox
+	// Creates the map with tile and spots layers.
+  .map('map', [tiles, spots])
+	// Sets the initial map view to 0.1296E, 51.5011N @ Z14.
+  .centerzoom({ lon:-81.592026, lat:41.191926 }, 11);
+	// Enable interaction events on spots layer.
+mapbox.markers.interaction(spots);
+</script>
+ 
+</body>

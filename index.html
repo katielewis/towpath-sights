@@ -8,13 +8,12 @@
 <script src='http://underscorejs.org/underscore-min.js'></script>
 
 <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>
-<link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.css' rel='stylesheet'/>
-<!--can't quite work
-<script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>
+<!--<link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.css' rel='stylesheet'/> -->
+<!--can't quite work -->
 <link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.css' rel='stylesheet' />
 <script>
   mapbox.auto('map', 'codeforamerica.map-ht6lb7bx');
-</script>-->
+</script>
 
 <!--stylesheet-->
 <link href='stylesheet.css' rel="stylesheet" type="text/css">
@@ -93,7 +92,7 @@ var geojson = [
     "properties": { "id": "charing-cross", "zoom": 18 } }
 ];
 var tiles = mapbox.layer().tilejson({
-  tiles: [ "http://a.tiles.mapbox.com/v3/examples.map-liczq28b/{z}/{x}/{y}.png" ]
+  tiles: [ "http://a.tiles.mapbox.com/v3/examples.map-ht61b7bx/{z}/{x}/{y}.png" ]
 });
 var spots = mapbox.markers.layer()
   // Load up markers from geojson data.
@@ -108,7 +107,7 @@ var spots = mapbox.markers.layer()
 
 // Creates the map with tile and marker layers and
 // no input handlers (mouse drag, scrollwheel, etc).
-var map = mapbox.map('map', [tiles, spots], null, []);
+var map = mapbox.auto('map', 'codeforamerica.map-ht61b7bx' [tiles, spots], null, []);
 
 // Array of story section elements.
 var sections = document.getElementsByTagName('section');
