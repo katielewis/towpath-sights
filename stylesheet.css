@@ -100,6 +100,7 @@ p { margin:0px; }
 .spot-telegraph.active { background-position:-910px -120px; }
 .spot-charing-cross { background-position:-1040px 0px; }
 .spot-charing-cross.active { background-position:-1040px -120px; }
+\
 
 /* Distinguish the "cover page" visually other sections. */
 body.section-0 #map { opacity:0.5; }

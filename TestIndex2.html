@@ -13,12 +13,12 @@
 	background:#fff;
 }
 article {
-  width:33.3333%;
-  min-width:320px;
-  position:relative;
-  padding-top:40px;
-  padding-bottom:33.3333%;
-  }
+	width:33.3333%;
+	min-width:320px;
+  	position:relative;
+ 	padding-top:40px;
+ 	padding-bottom:33.3333%;
+}
 section {
 	padding:40px;
  	margin-left:40px;
@@ -29,14 +29,14 @@ section {
 }
 section,
 section a {
-  color:#888;
-  color:rgba(128,128,128,0);
-  text-decoration:none;
-  text-shadow:rgba(64,64,64,1) 0px 0px 4px;
+	color:#888;
+	color:rgba(128,128,128,0);
+	text-decoration:none;
+	text-shadow:rgba(64,64,64,1) 0px 0px 4px;
 }
 section.active {
-  background:#222;
-  color:#eee;
+	background:#222;
+ 	color:#eee;
 }
 section.active a { color:#eee; }
 section.active small { color:#aaa; }
@@ -46,28 +46,25 @@ h1,h2 { margin:0px 0px 10px; }
 p { margin:0px; }
 
 .scroll {
-  position:absolute;
-  right:0px; bottom:0px;
-  font-size:10px;
-  text-transform:uppercase;
-  padding:5px 10px;
+	position:absolute;
+	right:0px; bottom:0px;
+	font-size:10px;
+ 	text-transform:uppercase;
+	padding:5px 10px;
 }
 .colophon {
-  display:block;
-  margin-top:10px;
+ 	display:block;
+ 	margin-top:10px;
 }
 
 .cover:before {
 	content:'';
 	display:block;
-	width:100px; height:100px;
+	width:120px; height:120px;
 	margin:0px auto 20px;
-	border-radius:50%;
-	border:10px solid transparent;
 	}
 .cover.active:before { 
-	background:#333 url(sprite.png) 0px 0px no-repeat;
-	border-color:#333;
+	background: url(sprite.png) 0px -120px no-repeat;
 }
 
 #pane {
@@ -81,42 +78,41 @@ p { margin:0px; }
 	position:absolute;
 	top:0px;
 	bottom:0px;
-	left:-50px;
+	left:-50%;
 	width:200%;
 	transition:opacity 250ms;
   -moz-transition:opacity 250ms;
   -webkit-transition:opacity 250ms;
 }
 .spot {
-  width:60px;
-  height:60px;
-  margin:-40px 0px 0px -40px;
+  width:120px;
+  height:120px;
+  margin:-60px 0px 0px -60px;
   border-radius:50%;
-  border:10px solid #ff9270;
-  background:#ff9270 url(sprite.png) 100px 100px no-repeat;
+  background:url(sprite.png) 120px 120px no-repeat;
   position:absolute;
 }
 .spot-cover { display:none; }
-.spot-P1 { background-position:-130px 0px; }
-.spot-P1.active { background-position:-130px -120px; }
-.spot-P2 { background-position:-260px 0px; }
-.spot-P2.active { background-position:-260px -120px; }
-.spot-P3 { background-position:-390px 0px; }
-.spot-P3.active { background-position:-300px 0px; }
-.spot-P4 { background-position:-420px -20px; }
-.spot-P4.active { background-position:-400px 0px; }
-.spot-P5 { background-position:-520px -20px; }
-.spot-P5.active { background-position:-500px 0px; }
-.spot-P6 { background-position:-620px -20px; }
-.spot-P6.active { background-position:-600px 0px; }
-.spot-P7 { background-position:-720px -20px; }
-.spot-P7.active { background-position:-700px 0px; }
-.spot-P8 { background-position:-820px -20px; }
-.spot-P8.active { background-position:-800px 0px; }
-.spot-P9 { background-position:-120px -20px; }
-.spot-P9.active { background-position:-100px 0px; }
-.spot-P10 { background-position:-220px -20px; }
-.spot-P10.active { background-position:-200px 0px; }
+.spot-StationRoadBridgeTrailhead { background-position:-130px 0px; }
+.spot-StationRoadBridgeTrailhead.active { background-position:-130px -120px; }
+.spot-BostonStore { background-position:-260px 0px; }
+.spot-BostonStore.active { background-position:-260px -120px; }
+.spot-TrailMix2 { background-position:-390px 0px; }
+.spot-TrailMix2.active { background-position:-390px -120px; }
+.spot-MustilStore { background-position:-5200px 0px; }
+.spot-MustilStore.active { background-position:-520px -120px; }
+.spot-DowntownExit { background-position:-650px 0px; }
+.spot-DowntownExit.active { background-position:-650px -120px; }
+.spot-MainSt { background-position:-780px 0px; }
+.spot-MainSt.active { background-position:-780px -120px; }
+.spotLock3 { background-position:-910px 0px; }
+.spot-Lock3.active { background-position:-910px -120px; }
+.spot-TrailMix { background-position:-1040px 0px; }
+.spot-TrailMix.active { background-position:-1040px -120px; }
+.spot-Railway { background-position:-130px -0px; }
+.spot-Railway.active { background-position:-130px -120px; }
+.spot-Done { background-position:-260px 0px; }
+.spot-Done.active { background-position:-260px -120px; }
 /* Distinguish the "cover page" visually other sections. */
 body.section-0 #map { opacity:0.5; }
 
@@ -136,7 +132,7 @@ body.section-0 #map { opacity:0.5; }
 </style>
 </head>
 
-+<body class='section-0'>
+<body class='section-0'>
 <div id='pane'>
 	<div id='map'></div>
 </div>
@@ -147,45 +143,50 @@ body.section-0 #map { opacity:0.5; }
     <p>just leaving this in</p>
     <small>Scroll ▼</small>
   </section>
-  <section id='P1'>
-    <h2>221b Baker St. (1)</h2>
-    <p>November 1895. London is shrouded in fog and Sherlock Holmes and Watson pass time restlessly awaiting a new case. "The London criminal is certainly a dull fellow," Sherlock bemoans. "There have been numerous petty thefts," Watson offers in response. Just then a telegram arrives from Sherlock's brother Mycroft with a mysterious case.</p>
+  <section id='StationRoadBridgeTrailhead'>
+    <h2>Station Road Bridge Trailhead</h2>
+    <p>10499 Riverview Rd., Brecksville, 44141 (about 1/8 mile south of St. Rte. 82)</p>
   </section>
-  <section id='P2'>
-    <h2>Aldgate Station (2)</h2>
-    <p>Arthur Cadogan West was found dead, head crushed in on train tracks at Aldgate Station at 6AM Tuesday morning. West worked at Woolwich Arsenal on the Bruce-Partington submarine, a secret military project. Plans for the submarine had been stolen and seven of the ten missing papers were found in West's possession. Mycroft implores Sherlock to take the case and recover the three missing papers.</p>
+  <section id='BostonStore'>
+    <h2>Boston Store Visitor Center</h2>
+    <p>Museum:  The exhibits tell the story of canal-boat building in the valley.</p>
+    <p>1550 Boston Mills Road, east of Riverview Road, Peninsula 44264</p>
   </section>
-  <section id='P3'>
-    <h2>London Bridge (3)</h2>
-    <p>Holmes and Watson's investigations take them across London. Sherlock deduces that West was murdered elsewhere, then moved to Aldgate Station to create the illusion that he was crushed on the tracks by a train. On their way to Woolwich Sherlock dispatches a telegram to Mycroft at London Bridge: "Send list of all foreign spies known to be in England, with full address."</p>
+  <section id='TrailMix2'>
+    <h2>Trail Mix</h2>
+    <p>----</p>
   </section>
-  <section id='P4'>
-    <h2>Woolwich Arsenal (4)</h2>
-    <p>While investigating at Woolwich Arsenal Sherlock learns that West did not have the three keys&mdash;door, office, and safe&mdash;necessary to steal the papers. The train station clerk mentions seeing an agitated West boarding the 8:15 train to London Bridge. Sherlock suspects West of following someone who had access to the Woolwich chief's keyring with all three keys.</p>
+  <section id='MustilStore'>
+    <h2>Mustil Store</h2>
+    <p>The Mustill Store and House are the Park's showcase pieces. Located in their original site at Lock 15, these canal-era buildings are believed to have been built in the 1850s, although the exact date is unknown. Three generations of Mustills serviced canal users until the late 1880s. Their story typifies that of many businesses that sprung up along the canal near the locks. Yet, the family's success and social popularity made this a special place to be.</p>
+    <p>248 Ferndale St, Akron, OH 44304</p>
+    <p>http://www.cascadelocks.org/store.html</p>
   </section>
-  <section id='P5'>
-    <h2>Gloucester Road (5)</h2>
-    <p>Mycroft responds to Sherlock's telegram and mentions several spies. Hugo Oberstein of 13 Caulfield Gardens catches Sherlock's eye. He heads to the nearby Gloucester Road station to investigate and learns that the windows of Caulfield Gardens open over rail tracks where trains stop frequently.</p>
+  <section id='DowntownExit'>
+    <h2>Exit Towpath</h2>
+    <p>At the Richard Howe House, detour from the Towpath Trail for a quick break in Downtown Akron. </p>
   </section>
-  <section id='P6'>
-    <h2>13 Caulfield Gardens (6)</h2>
-    <p>Holmes deduces that the murderer placed West atop a stopped train at Caulfield Gardens. The train traveled to Aldgate Station before West's body finally toppled off. Backtracking to the criminal's apartment, Holmes finds a series of classified ads from <em>The Daily Telegraph</em> stashed away. All are under the name Pierrot: "Monday night after nine. Two taps. Only ourselves. Do not be so suspicious. Payment in hard cash when goods delivered."</p>
+  <section id='MainSt'>
+    <h2>Main Street Eateries</h2>
+    <p>Take a breather and grab some a snack and a cold beverage from one of the many eateries on Main St.</p>
   </section>
-  <section id='P7'>
-    <h2>The Daily Telegraph (7)</h2>
-    <p>Holmes and Watson head to The Daily Telegraph and place an ad to draw out the criminal. It reads: "To-night. Same hour. Same place. Two taps. Most vitally important. Your own safety at stake. Pierrot." The trap works and Holmes catches the criminal: Colonel Valentine Walter, the brother of Woolwich Arsenal's chief. He confesses to working for Hugo Oberstein to obtain the submarine plans in order to pay off his debts.</p>
+  <section id='Lock3'>
+    <h2>Lock 3 Park</h2>
+    <p>Grab your snack and lounge on the grass at Lock 3 Park. Once you are rested, hop back onto the Towpath on the Trailhead towards the back of the park.</p>
   </section>
-  <section id='P8'>
+  <section id='TrailMix'>
     <h2>Charing Cross Hotel (8)</h2>
-    <p>Walter writes to Oberstein and convinces him to meet in the smoking room of the Charing Cross Hotel where he promises additional plans for the submarine in exchange for money. The plan works and Holmes and Watson catch both criminals.</p>
+    <p>Pit stop + Pick up some souviners</p>
   </section>
-  <section id='P9'>
-    <h2>Charing Cross Hotel (9)</h2>
-    <p>Walter writes to Oberstein and convinces him to meet in the smoking room of the Charing Cross Hotel where he promises additional plans for the submarine in exchange for money. The plan works and Holmes and Watson catch both criminals.</p>
+  <section id='Railway'>
+    <h2>Scenic Railway</h2>
+    <p>Board the Cuyahoga Valley Scenic Railroad at the Peninsula Depot (across from the Winking Lizard). Thanks to Bike Aboard, you can bring your bike!</p>
+    <p>1630 Mill Street, Peninsula, OH 44264</p>
+    <p>http://www.cvsr.com/bike-aboard</p>
   </section>
-  <section id='P10'>
-    <h2>Charing Cross Hotel (10)</h2>
-    <p>Walter writes to Oberstein and convinces him to meet in the smoking room of the Charing Cross Hotel where he promises additional plans for the submarine in exchange for money. The plan works and Holmes and Watson catch both criminals.</p>
+  <section id='Done'>
+    <h2>Done!</h2>
+    <p>Walter writes to Oberstein and convinces him to meet in the smoking room of the Charing Cross Hotel where he promises additional plans for the submarine in exchange for money. The plan works and Holmes and Watson catch both </p>
   </section>
 </article>
 
@@ -196,25 +197,25 @@ body.section-0 #map { opacity:0.5; }
  	{ "geometry": { "type": "Point", "coordinates": [-81.592026, 41.191926] },
     "properties": { "id": "cover", "zoom": 11 } },
 	{ "geometry": { "type": "Point", "coordinates": [-81.570826, 41.279983] },
-    "properties": { "id": "P1" } },
+    "properties": { "id": "StationRoadBridgeTrailhead", "zoom": 15 } },
 	{ "geometry": { "type": "Point", "coordinates": [-81.559281, 41.263074] },
-    "properties": { "id": "P2" } },
+    "properties": { "id": "BostonStore", "zoom": 15  } },
 	{ "geometry": { "type": "Point", "coordinates": [-81.548660, 41.241691] },
-    "properties": { "id": "P3" } },
+    "properties": { "id": "TrailMix2", "zoom": 18 } },
 	{ "geometry": { "type": "Point", "coordinates": [-81.518249, 41.091926] },
-    "properties": { "id": "P4" } },
+    "properties": { "id": "MustilStore", "zoom": 15 } },
 	{ "geometry": { "type": "Point", "coordinates": [-81.523801, 41.077467] },
-    "properties": { "id": "P5" } },
+    "properties": { "id": "DowntownExit", "zoom": 18 } },
 	{ "geometry": { "type": "Point", "coordinates": [-81.522031, 41.076642] },
-    "properties": { "id": "P6" } },
+    "properties": { "id": "MainSt", "zoom": 18 } },
 	{ "geometry": { "type": "Point", "coordinates": [-81.519842, 41.080431] },
-    "properties": { "id": "P7" } },
+    "properties": { "id": "Lock3", "zoom": 18 } },
 	{ "geometry": { "type": "Point", "coordinates": [-81.548660, 41.241691] },
-    "properties": { "id": "P8" } },
+    "properties": { "id": "TrailMix", "zoom": 18 } },
     { "geometry": { "type": "Point", "coordinates": [-81.549025, 41.242288] },
-    "properties": { "id": "P9" } },
+    "properties": { "id": "Railway", "zoom": 18 } },
     { "geometry": { "type": "Point", "coordinates": [-81.570826, 41.279983] },
-    "properties": { "id": "P10" } },
+    "properties": { "id": "Done", "zoom": 18 } },
 ];
 var tiles = mapbox.layer().tilejson({
   tiles: [ "http://a.tiles.mapbox.com/v3/codeforamerica.map-ht6lb7bx/{z}/{x}/{y}.png" ]
